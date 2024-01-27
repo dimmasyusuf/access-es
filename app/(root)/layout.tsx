@@ -1,4 +1,5 @@
 import Navbar from '@/components/Navbar';
+import NavbarMobile from '@/components/NavbarMobile';
 import React from 'react';
 
 export default function RootLayout({
@@ -8,11 +9,12 @@ export default function RootLayout({
 }) {
   return (
     <>
-      <header className="max-w-screen-xl mx-auto py-4 px-6">
+      <header className="max-w-screen-xl mx-auto">
         <Navbar />
       </header>
       {children}
       <footer></footer>
+      <NavbarMobile />
     </>
   );
 }
