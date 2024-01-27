@@ -13,7 +13,7 @@ import { classItems, programItems } from '@/constant';
 
 export default function NavbarMenu() {
   return (
-    <NavigationMenu className="flex justify-between w-full">
+    <NavigationMenu className="hidden sm:flex justify-between w-full">
       <NavigationMenuList className="flex justify-between w-full">
         <NavigationMenuItem className="cursor-pointer">
           <NavigationMenuLink
