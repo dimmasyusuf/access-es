@@ -26,7 +26,7 @@ export default function NavbarMenu() {
         <NavigationMenuItem>
           <NavigationMenuTrigger>Program</NavigationMenuTrigger>
           <NavigationMenuContent className="flex w-full">
-            <ul className="grid grid-cols-2 gap-2 p-4 w-[488px]">
+            <ul className="grid grid-cols-2 gap-2 p-4 w-[492px]">
               {programItems.map((item, index) => (
                 <li
                   key={index}
@@ -49,7 +49,7 @@ export default function NavbarMenu() {
         <NavigationMenuItem>
           <NavigationMenuTrigger>Kelas</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid grid-cols-2 gap-2 p-4 w-[488px]">
+            <ul className="grid grid-cols-2 gap-2 p-4 w-[492px]">
               {classItems.map((item, index) => (
                 <li
                   key={index}

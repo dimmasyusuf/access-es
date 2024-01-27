@@ -9,7 +9,7 @@ export default function RootLayout({
 }) {
   return (
     <>
-      <header className="max-w-screen-xl mx-auto py-4 px-4 sm:px-8">
+      <header className="sticky sm:static bg-background shadow sm:shadow-none top-0 max-w-screen-xl mx-auto py-4 px-4 sm:px-8">
         <Navbar />
       </header>
       {children}
