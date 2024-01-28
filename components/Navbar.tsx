@@ -6,15 +6,21 @@ import NavbarSheet from './NavbarSheet';
 
 export default function Navbar() {
   return (
-    <section className="flex justify-between w-full items-center">
+    <section className="flex justify-between max-w-screen-xl items-center mx-auto">
+      <NavbarSheet />
       <Link href="/">
         <Image
           src="/logo.svg"
-          alt="access english school logo"
-          width={40}
+          alt="Access English School Logo"
+          width={112}
           height={40}
-          className="rounded-lg"
         />
+      </Link>
+      <Link
+        href="/"
+        className="flex sm:hidden font-bold text-sm"
+      >
+        Daftar
       </Link>
       <div className="hidden sm:flex items-center gap-16">
         <NavbarMenu />
@@ -30,7 +36,6 @@ export default function Navbar() {
           </Button>
         </div>
       </div>
-      <NavbarSheet />
     </section>
   );
 }

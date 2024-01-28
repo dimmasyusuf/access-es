@@ -3,13 +3,10 @@
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
   SheetFooter,
   SheetHeader,
-  SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
-import { HamburgerMenuIcon } from '@radix-ui/react-icons';
 import Link from 'next/link';
 import { Button } from './ui/button';
 import {
@@ -20,7 +17,7 @@ import {
 } from '@/components/ui/accordion';
 import { classItems, programItems } from '@/constant';
 import { useState } from 'react';
-import { RiMenuFill, RiMenuLine } from 'react-icons/ri';
+import { RiMenuFill } from 'react-icons/ri';
 
 export default function NavbarSheet() {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,11 +29,14 @@ export default function NavbarSheet() {
     >
       <SheetTrigger
         aria-label="Open Mobile Menu"
-        className="flex sm:hidden hover:bg-accent hover:text-accent-foreground h-10 w-10 items-center justify-center rounded-md"
+        className="flex sm:hidden hover:bg-accent hover:text-accent-foreground h-8 w-8 items-center justify-center rounded-md"
       >
         <RiMenuFill className="w-6 h-6" />
       </SheetTrigger>
-      <SheetContent className="flex flex-col justify-between">
+      <SheetContent
+        side="left"
+        className="flex flex-col justify-between"
+      >
         <SheetHeader className="mt-6 space-y-0">
           <Button
             variant="ghost"
