@@ -13,7 +13,7 @@ export default function RootLayout({
         <Navbar />
       </header>
       {children}
-      <footer className="border-t px-6 sm:px-8">
+      <footer className="border-t p-6 sm:p-8">
         <FooterMenu />
       </footer>
       <NavbarMobile />

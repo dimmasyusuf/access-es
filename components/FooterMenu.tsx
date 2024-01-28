@@ -13,7 +13,7 @@ export default function FooterMenu() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <section className="flex flex-col gap-8 max-w-screen-xl mx-auto mt-16">
+    <section className="flex flex-col gap-8 sm:gap-16 max-w-screen-xl mx-auto">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8">
         <div className="lg:col-span-2 flex flex-col gap-4">
           <h3 className="text-xl font-bold">ACCESS ENGLISH SCHOOL</h3>
@@ -181,7 +181,7 @@ export default function FooterMenu() {
           </div>
         </div>
       </div>
-      <div className="flex justify-between items-center py-8">
+      <div className="flex justify-between items-center">
         <p className="text-sm text-muted-foreground">
           &copy; 2006 - {currentYear}{' '}
           <Link
