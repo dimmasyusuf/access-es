@@ -1,6 +1,6 @@
 import Navbar from '@/components/Navbar';
 import NavbarMobile from '@/components/NavbarMobile';
-import React from 'react';
+import FooterMenu from '@/components/FooterMenu';
 
 export default function RootLayout({
   children,
@@ -13,7 +13,9 @@ export default function RootLayout({
         <Navbar />
       </header>
       {children}
-      <footer></footer>
+      <footer className="border-t px-4 sm:px-8">
+        <FooterMenu />
+      </footer>
       <NavbarMobile />
     </>
   );
