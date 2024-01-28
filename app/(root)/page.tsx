@@ -1,9 +1,9 @@
-import { Button } from '@/components/ui/button';
+import YoutubeVideo from '@/components/YoutubeVideo';
 
 export default async function Home() {
   return (
-    <main className="flex h-screen flex-col items-center justify-between p-24">
-      <Button>Click me</Button>
+    <main className="flex flex-col items-center gap-16">
+      <YoutubeVideo />
     </main>
   );
 }

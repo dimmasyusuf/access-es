@@ -17,7 +17,7 @@ import {
 } from '@/components/ui/accordion';
 import { classItems, programItems } from '@/constant';
 import { useState } from 'react';
-import { RiMenuFill } from 'react-icons/ri';
+import Image from 'next/image';
 
 export default function NavbarSheet() {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,9 +29,14 @@ export default function NavbarSheet() {
     >
       <SheetTrigger
         aria-label="Open Mobile Menu"
-        className="flex sm:hidden hover:bg-accent hover:text-accent-foreground h-8 w-8 items-center justify-center rounded-md"
+        className="flex md:hidden items-center justify-center rounded-md mr-3"
       >
-        <RiMenuFill className="w-6 h-6" />
+        <Image
+          src="/icon_menu.svg"
+          alt="Open Mobile Menu"
+          width={23}
+          height={23}
+        />
       </SheetTrigger>
       <SheetContent
         side="left"

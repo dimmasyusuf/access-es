@@ -9,11 +9,11 @@ export default function RootLayout({
 }) {
   return (
     <>
-      <header className="sticky bg-background shadow-sm top-0 py-5 px-4 sm:py-6 sm:px-8">
+      <header className="sticky bg-background shadow-sm top-0 py-5 px-6 sm:py-6 sm:px-8">
         <Navbar />
       </header>
       {children}
-      <footer className="border-t px-4 sm:px-8">
+      <footer className="border-t px-6 sm:px-8">
         <FooterMenu />
       </footer>
       <NavbarMobile />
