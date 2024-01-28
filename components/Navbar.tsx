@@ -10,7 +10,7 @@ export default function Navbar() {
       <NavbarSheet />
       <Link href="/">
         <Image
-          src="/logo.svg"
+          src="/logo_text.svg"
           alt="Access English School Logo"
           width={112}
           height={40}
