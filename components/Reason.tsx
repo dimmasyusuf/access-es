@@ -1,5 +1,10 @@
 import React from 'react';
-import { RiGlobalLine, RiGraduationCapLine, RiTimerLine } from 'react-icons/ri';
+import {
+  RiGlobalLine,
+  RiGraduationCapLine,
+  RiTimerLine,
+  RiVerifiedBadgeLine,
+} from 'react-icons/ri';
 import {
   Card,
   CardContent,
@@ -11,55 +16,71 @@ import {
 
 export default function Reason() {
   return (
-    <section className="flex px-6 sm:px-8 lg:px-16 max-w-screen-xl">
-      <div className="flex flex-col py-8 gap-6">
-        <h2 className="font-semibold text-2xl">Why ACCESS-ES?</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <Card className="shadow-none">
-            <CardHeader className="flex flex-row md:flex-col gap-3 items-center md:items-start space-y-0">
-              <div className="w-6 h-6 md:w-8 md:h-8">
+    <section className="flex px-6 sm:px-8 md:px-0 max-w-screen-xl">
+      <div className="flex flex-col py-8 gap-10 md:gap-16">
+        <h2 className="font-medium text-3xl md:text-5xl">Kenapa ACCESS-ES?</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+          <div className="flex flex-col gap-4 md:gap-6">
+            <div className="flex flex-row md:flex-col gap-3 md:gap-6 items-center md:items-start">
+              <div className="w-7 h-7 md:w-9 md:h-9">
                 <RiTimerLine className="w-full h-full" />
               </div>
-              <CardTitle>+15 Tahun Berpengalaman</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <CardDescription>
-                ACCESS English School mengabdi sejak tahun 2006 dan menjadi
-                salah satu pelopor program belajar bahasa Inggris dengan metode
-                English Area di Kampung Inggris Pare.
-              </CardDescription>
-            </CardContent>
-          </Card>
+              <h3 className="text-lg md:text-2xl xl:h-16 w-full">
+                +15 Tahun Berpengalaman
+              </h3>
+            </div>
+            <p className="text-muted-foreground text-pretty">
+              ACCESS English School mengabdi sejak tahun 2006 dan menjadi salah
+              satu pelopor program belajar bahasa Inggris dengan metode English
+              Area di Kampung Inggris Pare.
+            </p>
+          </div>
 
-          <Card className="shadow-none">
-            <CardHeader className="flex flex-row md:flex-col gap-3 items-center md:items-start space-y-0">
-              <div className="w-6 h-6 md:w-8 md:h-8">
+          <div className="flex flex-col gap-4 md:gap-6">
+            <div className="flex flex-row md:flex-col gap-3 md:gap-6 items-center md:items-start">
+              <div className="w-7 h-7 md:w-9 md:h-9">
                 <RiGraduationCapLine className="w-full h-full" />
               </div>
-              <CardTitle>+150.796 Alumni</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <CardDescription>
-                Meluluskan alumni yang tersebar di seluruh Indonesia dan
-                mancanegara.
-              </CardDescription>
-            </CardContent>
-          </Card>
+              <h3 className="text-lg md:text-2xl xl:h-16 w-full">
+                +150.796 Alumni
+              </h3>
+            </div>
+            <p className="text-muted-foreground text-pretty">
+              Meluluskan alumni yang tersebar di seluruh Indonesia dan
+              Mancanegara dengan berbagai macam latar belakang pendidikan,
+              profesi, dan usia.
+            </p>
+          </div>
 
-          <Card className="shadow-none">
-            <CardHeader className="flex flex-row md:flex-col gap-3 items-center md:items-start space-y-0">
-              <div className="w-6 h-6 md:w-8 md:h-8">
+          <div className="flex flex-col gap-4 md:gap-6">
+            <div className="flex flex-row md:flex-col gap-3 md:gap-6 items-center md:items-start">
+              <div className="w-7 h-7 md:w-9 md:h-9">
+                <RiVerifiedBadgeLine className="w-full h-full" />
+              </div>
+              <h3 className="text-lg md:text-2xl xl:h-16 w-full">
+                Coach Tersertifikasi
+              </h3>
+            </div>
+            <p className="text-muted-foreground text-pretty">
+              Memiliki tim pengajar yang telah mendapatkan sertifikasi ETS
+              (Educational Testing Service) dengan skor lebih dari 800.
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-4 md:gap-6">
+            <div className="flex flex-row md:flex-col gap-3 md:gap-6 items-center md:items-start">
+              <div className="w-7 h-7 md:w-9 md:h-9">
                 <RiGlobalLine className="w-full h-full" />
               </div>
-              <CardTitle>Kurikulum Internasional</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <CardDescription>
-                Menggunakan metode Common European Framework of Reference (CEFR)
-                sebagai standar belajar bahasa Inggris di tingkat Internasional.
-              </CardDescription>
-            </CardContent>
-          </Card>
+              <h3 className="text-lg md:text-2xl xl:h-16 w-full">
+                Kurikulum Internasional
+              </h3>
+            </div>
+            <p className="text-muted-foreground text-pretty">
+              Menggunakan metode Common European Framework of Reference (CEFR)
+              sebagai standar belajar bahasa Inggris di tingkat Internasional.
+            </p>
+          </div>
         </div>
       </div>
     </section>
