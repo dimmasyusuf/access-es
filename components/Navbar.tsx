@@ -11,7 +11,7 @@ export default function Navbar() {
 
       <Link
         href="/"
-        className="sm:mr-auto"
+        className="sm:mr-auto md:mr-0"
       >
         <Image
           src="/logo_text.svg"
@@ -21,26 +21,26 @@ export default function Navbar() {
         />
       </Link>
 
+      <NavbarMenu />
+
       <Link
-        href="/"
-        className="flex sm:hidden font-bold text-sm hover:text-primary"
+        href="/register"
+        className="font-bold hover:text-primary sm:hidden"
       >
         Daftar
       </Link>
 
-      <div className="hidden sm:flex items-center gap-16">
-        <NavbarMenu />
-        <div className="flex gap-2">
-          <Button
-            variant="outline"
-            asChild
-          >
-            <Link href="/login">Masuk</Link>
-          </Button>
-          <Button asChild>
-            <Link href="/register">Daftar</Link>
-          </Button>
-        </div>
+      <div className="hidden sm:flex items-center gap-2">
+        <Button
+          variant="outline"
+          asChild
+          className="font-medium border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+        >
+          <Link href="/login">Masuk</Link>
+        </Button>
+        <Button asChild>
+          <Link href="/register">Daftar</Link>
+        </Button>
       </div>
     </section>
   );
