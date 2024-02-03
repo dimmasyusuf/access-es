@@ -3,6 +3,7 @@ import CategoryList from '@/components/CategoryList';
 import PopularList from '@/components/PopularList';
 import Reason from '@/components/Reason';
 import YoutubeVideo from '@/components/YoutubeVideo';
+import GetStarted from '@/components/GetStarted';
 
 export default async function Home() {
   return (
@@ -10,6 +11,7 @@ export default async function Home() {
       <Hero />
       <CategoryList />
       <PopularList />
+      <GetStarted />
       <Reason />
       <YoutubeVideo />
     </main>
