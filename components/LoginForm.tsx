@@ -24,6 +24,7 @@ import { useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { RiAppleFill, RiFacebookFill } from 'react-icons/ri';
 import { EyeNoneIcon, EyeOpenIcon } from '@radix-ui/react-icons';
+import { loginWithGoogle } from '@/lib/actions/auth.action';
 
 export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
@@ -80,6 +81,7 @@ export default function LoginForm() {
             variant="outline"
             size="lg"
             className="h-12"
+            onClick={() => loginWithGoogle()}
           >
             <FcGoogle className="w-6 h-6" />
           </Button>

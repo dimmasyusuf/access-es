@@ -1,4 +1,4 @@
-const programItems = [
+export const programItems = [
   {
     title: 'Camp',
     description: 'Pelajari Bahasa Inggris sambil tinggal di Asrama.',
@@ -21,7 +21,7 @@ const programItems = [
   },
 ];
 
-const classItems = [
+export const classItems = [
   {
     title: 'TOEFL',
     description: 'Siapkan dirimu dengan kelas khusus untuk ujian TOEFL.',
@@ -53,5 +53,3 @@ const classItems = [
     route: '/kelas',
   },
 ];
-
-export { programItems, classItems };
