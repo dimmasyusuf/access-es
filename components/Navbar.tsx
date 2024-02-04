@@ -3,10 +3,12 @@ import NavbarMenu from './NavbarMenu';
 import Image from 'next/image';
 import { Button } from './ui/button';
 import NavbarSheet from './NavbarSheet';
-import { auth } from '@/auth';
+import NavbarProfile from './NavbarProfile';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@/app/api/auth/[...nextauth]/options';
 
 export default async function Navbar() {
-  const session = await auth();
+  const session = await getServerSession(authOptions);
 
   return (
     <section className="flex max-w-screen-xl items-center mx-auto justify-between">
@@ -36,15 +38,7 @@ export default async function Navbar() {
       )}
 
       {session ? (
-        <div className="">
-          <Image
-            src={session?.user?.image!}
-            alt={session?.user?.name!}
-            width={40}
-            height={40}
-            className="rounded-full"
-          />
-        </div>
+        <NavbarProfile session={session} />
       ) : (
         <div className="hidden sm:flex items-center gap-2">
           <Button

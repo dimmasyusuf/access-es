@@ -21,8 +21,13 @@ import { Separator } from './ui/separator';
 
 import { useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
-import { RiAppleFill, RiFacebookFill } from 'react-icons/ri';
-import { EyeNoneIcon, EyeOpenIcon } from '@radix-ui/react-icons';
+import {
+  RiAppleFill,
+  RiEyeCloseLine,
+  RiEyeLine,
+  RiFacebookFill,
+} from 'react-icons/ri';
+import { signIn } from 'next-auth/react';
 
 export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
@@ -80,6 +85,7 @@ export default function LoginForm() {
             variant="outline"
             size="lg"
             className="h-12"
+            onClick={() => signIn('google', { callbackUrl: '/' })}
           >
             <FcGoogle className="w-6 h-6" />
           </Button>
@@ -150,7 +156,7 @@ export default function LoginForm() {
                           className="flex items-center justify-center w-6 h-6 hover:bg-accent rounded-md"
                           onClick={() => setShowPassword(false)}
                         >
-                          <EyeNoneIcon className="text-muted-foreground hover:text-primary w-4 h-4" />
+                          <RiEyeCloseLine className="text-muted-foreground hover:text-primary w-4 h-4" />
                         </span>
                       </div>
                     ) : (
@@ -159,7 +165,7 @@ export default function LoginForm() {
                           className="flex items-center justify-center w-6 h-6 hover:bg-accent rounded-md"
                           onClick={() => setShowPassword(true)}
                         >
-                          <EyeOpenIcon className="text-muted-foreground hover:text-primary w-4 h-4" />
+                          <RiEyeLine className="text-muted-foreground hover:text-primary w-4 h-4" />
                         </span>
                       </div>
                     )}
