@@ -4,6 +4,7 @@ import PopularList from '@/components/PopularList';
 import Reason from '@/components/Reason';
 import YoutubeVideo from '@/components/YoutubeVideo';
 import GetStarted from '@/components/GetStarted';
+import FAQ from '@/components/FAQ';
 
 export default async function Home() {
   return (
@@ -14,6 +15,7 @@ export default async function Home() {
       <GetStarted />
       <Reason />
       <YoutubeVideo />
+      <FAQ />
     </main>
   );
 }
