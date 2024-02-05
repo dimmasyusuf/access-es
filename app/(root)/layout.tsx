@@ -1,5 +1,4 @@
 import Navbar from '@/components/Navbar';
-import NavbarMobile from '@/components/NavbarMobile';
 import FooterMenu from '@/components/FooterMenu';
 
 export default function RootLayout({
@@ -16,7 +15,6 @@ export default function RootLayout({
       <footer className="border-t p-6 sm:p-8">
         <FooterMenu />
       </footer>
-      <NavbarMobile />
     </>
   );
 }

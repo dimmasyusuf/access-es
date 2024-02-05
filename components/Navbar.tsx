@@ -6,13 +6,14 @@ import NavbarSheet from './NavbarSheet';
 import NavbarProfile from './NavbarProfile';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/app/api/auth/[...nextauth]/options';
+import { RiShoppingCartLine } from 'react-icons/ri';
 
 export default async function Navbar() {
   const session = await getServerSession(authOptions);
 
   return (
     <section className="flex max-w-screen-xl items-center mx-auto justify-between">
-      <NavbarSheet />
+      <NavbarSheet session={session!} />
 
       <Link
         href="/"
@@ -20,7 +21,7 @@ export default async function Navbar() {
       >
         <Image
           src="/logo_text.svg"
-          alt="Access English School Logo"
+          alt="ACCESS English School Logo"
           width={112}
           height={40}
         />
@@ -38,7 +39,12 @@ export default async function Navbar() {
       )}
 
       {session ? (
-        <NavbarProfile session={session} />
+        <div className="flex items-center gap-8">
+          <Link href="/cart">
+            <RiShoppingCartLine className="w-[27px] h-[27px]" />
+          </Link>
+          <NavbarProfile session={session} />
+        </div>
       ) : (
         <div className="hidden sm:flex items-center gap-2">
           <Button

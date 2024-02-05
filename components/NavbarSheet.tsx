@@ -15,11 +15,17 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { classItems, programItems } from '@/constant';
 import { useState } from 'react';
 import Image from 'next/image';
+import { Session } from 'next-auth';
+import { signOut } from 'next-auth/react';
+import { RiLogoutBoxLine } from 'react-icons/ri';
+import { getInitials } from '@/lib/utils';
+import { Separator } from './ui/separator';
 
-export default function NavbarSheet() {
+export default function NavbarSheet({ session }: { session: Session }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -42,16 +48,72 @@ export default function NavbarSheet() {
         side="left"
         className="flex flex-col justify-between"
       >
-        <SheetHeader className="mt-6 space-y-0">
+        <SheetHeader className="mt-6 space-y-0 overflow-auto">
+          {session && (
+            <div className="flex flex-col gap-4">
+              <div className="flex flex-row gap-2 items-center">
+                <Avatar className="rounded-sm">
+                  <AvatarImage
+                    src={session?.user?.image!}
+                    className="rounded-sm"
+                  />
+                  <AvatarFallback className="bg-sky-600 text-primary-foreground rounded-sm">
+                    {getInitials(session?.user?.name!)}
+                  </AvatarFallback>
+                </Avatar>
+                <div className="w-full overflow-hidden">
+                  <p className="text-left text-sm font-semibold truncate">
+                    {session?.user?.name}
+                  </p>
+                  <p className="text-left text-xs text-muted-foreground truncate">
+                    {session?.user?.email}
+                  </p>
+                </div>
+              </div>
+
+              <Separator />
+            </div>
+          )}
           <Button
             variant="ghost"
             size="lg"
             asChild
-            className="w-full justify-start pl-0 rounded-none h-[52px]"
+            className="w-full justify-start pl-0 rounded-none min-h-[52px]"
             onClick={() => setIsOpen(false)}
           >
             <Link href="/">Beranda</Link>
           </Button>
+          {session && (
+            <>
+              <Button
+                variant="ghost"
+                size="lg"
+                asChild
+                className="w-full justify-start pl-0 rounded-none min-h-[52px]"
+                onClick={() => setIsOpen(false)}
+              >
+                <Link href="/profile">Profile</Link>
+              </Button>
+              <Button
+                variant="ghost"
+                size="lg"
+                asChild
+                className="w-full justify-start pl-0 rounded-none min-h-[52px]"
+                onClick={() => setIsOpen(false)}
+              >
+                <Link href="/class">Kelas Saya</Link>
+              </Button>
+              <Button
+                variant="ghost"
+                size="lg"
+                asChild
+                className="w-full justify-start pl-0 rounded-none min-h-[52px]"
+                onClick={() => setIsOpen(false)}
+              >
+                <Link href="/transaction">Transaksi</Link>
+              </Button>
+            </>
+          )}
           <Accordion
             type="single"
             collapsible
@@ -72,7 +134,7 @@ export default function NavbarSheet() {
                         variant="ghost"
                         size="lg"
                         asChild
-                        className="w-full justify-start pl-4 rounded-none h-[52px]"
+                        className="w-full justify-start pl-4 rounded-none min-h-[52px]"
                         onClick={() => setIsOpen(false)}
                       >
                         <Link href={item.route}>{item.title}</Link>
@@ -97,7 +159,7 @@ export default function NavbarSheet() {
                         variant="ghost"
                         size="lg"
                         asChild
-                        className="w-full justify-start pl-4 rounded-none h-[52px]"
+                        className="w-full justify-start pl-4 rounded-none min-h-[52px]"
                         onClick={() => setIsOpen(false)}
                       >
                         <Link href={item.route}>{item.title}</Link>
@@ -112,28 +174,42 @@ export default function NavbarSheet() {
             variant="ghost"
             size="lg"
             asChild
-            className="w-full justify-start pl-0 rounded-none h-[52px]"
+            className="w-full justify-start pl-0 rounded-none min-h-[52px]"
             onClick={() => setIsOpen(false)}
           >
-            <Link href="/blog">Blog</Link>
+            <Link href="/promo">Promo</Link>
           </Button>
         </SheetHeader>
+
         <SheetFooter className="flex flex-row gap-2 justify-between">
-          <Button
-            variant="outline"
-            size="lg"
-            asChild
-            className="w-full"
-          >
-            <Link href="/login">Masuk</Link>
-          </Button>
-          <Button
-            size="lg"
-            asChild
-            className="w-full"
-          >
-            <Link href="/register">Daftar</Link>
-          </Button>
+          {session ? (
+            <Button
+              variant="outline"
+              size="lg"
+              className="w-full"
+              onClick={() => signOut()}
+            >
+              Keluar
+            </Button>
+          ) : (
+            <>
+              <Button
+                variant="outline"
+                size="lg"
+                asChild
+                className="w-full"
+              >
+                <Link href="/login">Masuk</Link>
+              </Button>
+              <Button
+                size="lg"
+                asChild
+                className="w-full"
+              >
+                <Link href="/register">Daftar</Link>
+              </Button>
+            </>
+          )}
         </SheetFooter>
       </SheetContent>
     </Sheet>
