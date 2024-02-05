@@ -78,6 +78,7 @@ export default function LoginForm() {
             variant="outline"
             size="lg"
             className="h-12"
+            onClick={() => signIn('facebook', { callbackUrl: '/' })}
           >
             <RiFacebookFill className="w-6 h-6 text-[#316FF6]" />
           </Button>
