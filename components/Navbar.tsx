@@ -40,9 +40,14 @@ export default async function Navbar() {
 
       {session ? (
         <div className="flex items-center gap-8">
-          <Link href="/cart">
-            <RiShoppingCartLine className="w-[27px] h-[27px]" />
-          </Link>
+          <div className="relative">
+            <span className="absolute top-0 right-0 w-[14px] h-[14px] bg-primary rounded-full text-[10px] text-primary-foreground flex items-center justify-center">
+              0
+            </span>
+            <Link href="/cart">
+              <RiShoppingCartLine className="w-[27px] h-[27px]" />
+            </Link>
+          </div>
           <NavbarProfile session={session} />
         </div>
       ) : (
