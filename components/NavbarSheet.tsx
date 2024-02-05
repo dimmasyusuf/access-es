@@ -16,14 +16,14 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { classItems, programItems } from '@/constant';
+import { programItems } from '@/constant';
 import { useState } from 'react';
 import Image from 'next/image';
 import { Session } from 'next-auth';
 import { signOut } from 'next-auth/react';
-import { RiLogoutBoxLine } from 'react-icons/ri';
 import { getInitials } from '@/lib/utils';
 import { Separator } from './ui/separator';
+import { RiLogoutBoxLine } from 'react-icons/ri';
 
 export default function NavbarSheet({ session }: { session: Session }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -144,31 +144,6 @@ export default function NavbarSheet({ session }: { session: Session }) {
                 </ul>
               </AccordionContent>
             </AccordionItem>
-            <AccordionItem
-              value="item-2"
-              className="border-none"
-            >
-              <AccordionTrigger className="hover:no-underline">
-                Kelas
-              </AccordionTrigger>
-              <AccordionContent className="pb-0">
-                <ul className="flex flex-col">
-                  {classItems.map((item, index) => (
-                    <li key={index}>
-                      <Button
-                        variant="ghost"
-                        size="lg"
-                        asChild
-                        className="w-full justify-start pl-4 rounded-none min-h-[52px]"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        <Link href={item.route}>{item.title}</Link>
-                      </Button>
-                    </li>
-                  ))}
-                </ul>
-              </AccordionContent>
-            </AccordionItem>
           </Accordion>
           <Button
             variant="ghost"
@@ -189,7 +164,7 @@ export default function NavbarSheet({ session }: { session: Session }) {
               className="w-full"
               onClick={() => signOut()}
             >
-              Keluar
+              <RiLogoutBoxLine className="w-5 h-5 mr-2" /> Keluar
             </Button>
           ) : (
             <>

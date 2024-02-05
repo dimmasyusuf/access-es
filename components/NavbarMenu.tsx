@@ -9,7 +9,15 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
-import { classItems, programItems } from '@/constant';
+import { programItems } from '@/constant';
+import {
+  RiBookLine,
+  RiBuilding4Line,
+  RiEBikeLine,
+  RiLandscapeLine,
+  RiLiveLine,
+  RiMedalFill,
+} from 'react-icons/ri';
 
 export default function NavbarMenu() {
   return (
@@ -26,7 +34,7 @@ export default function NavbarMenu() {
         <NavigationMenuItem>
           <NavigationMenuTrigger>Program</NavigationMenuTrigger>
           <NavigationMenuContent className="flex w-full">
-            <ul className="grid grid-cols-2 gap-2 p-4 w-[492px]">
+            <ul className="grid grid-cols-1 lg:grid-cols-2 gap-2 p-4 w-[458px] lg:w-[544px]">
               {programItems.map((item, index) => (
                 <li
                   key={index}
@@ -34,47 +42,47 @@ export default function NavbarMenu() {
                 >
                   <NavigationMenuLink
                     href={item.route}
-                    className="flex flex-col"
+                    className="flex gap-4"
                   >
-                    <span className="text-sm font-medium">{item.title}</span>
-                    <span className="text-xs text-muted-foreground">
-                      {item.description}
-                    </span>
+                    <div className="flex items-center lg:items-start justify-center min-h-full">
+                      {item.title === 'Paket Camp' && (
+                        <RiBuilding4Line className="w-7 h-7 lg:mt-0.5" />
+                      )}
+                      {item.title === 'Paket Non Camp' && (
+                        <RiEBikeLine className="w-7 h-7 lg:mt-0.5" />
+                      )}
+                      {item.title === 'Kelas Satuan' && (
+                        <RiBookLine className="w-7 h-7 lg:mt-0.5" />
+                      )}
+                      {item.title === 'Kelas Online' && (
+                        <RiLiveLine className="w-7 h-7 lg:mt-0.5" />
+                      )}
+                      {item.title === 'English Staycation' && (
+                        <RiLandscapeLine className="w-7 h-7 lg:mt-0.5" />
+                      )}
+                      {item.title === 'Beasiswa' && (
+                        <RiMedalFill className="w-7 h-7 lg:mt-0.5" />
+                      )}
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-sm font-medium">{item.title}</span>
+                      <span className="text-xs text-muted-foreground">
+                        {item.description}
+                      </span>
+                    </div>
                   </NavigationMenuLink>
                 </li>
               ))}
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Kelas</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid grid-cols-2 gap-2 p-4 w-[492px]">
-              {classItems.map((item, index) => (
-                <li
-                  key={index}
-                  className="p-4 rounded-md hover:bg-accent"
-                >
-                  <NavigationMenuLink
-                    href={item.route}
-                    className="flex flex-col"
-                  >
-                    <span className="text-sm font-medium">{item.title}</span>
-                    <span className="text-xs text-muted-foreground">
-                      {item.description}
-                    </span>
-                  </NavigationMenuLink>
-                </li>
-              ))}
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
+
         <NavigationMenuItem className="cursor-pointer">
           <NavigationMenuLink
-            href="/blog"
+            href="/promo"
             className={navigationMenuTriggerStyle()}
           >
-            Blog
+            Promo
           </NavigationMenuLink>
         </NavigationMenuItem>
       </NavigationMenuList>
