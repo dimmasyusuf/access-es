@@ -22,7 +22,7 @@ import { Separator } from './ui/separator';
 import { useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import {
-  RiAppleFill,
+  RiArrowRightLine,
   RiEyeCloseLine,
   RiEyeLine,
   RiFacebookFill,
@@ -30,6 +30,8 @@ import {
 import { signIn } from 'next-auth/react';
 
 export default function LoginForm() {
+  const [facebookHover, setFacebookHover] = useState(false);
+  const [googleHover, setGoogleHover] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
   const form = useForm<z.infer<typeof loginFormSchema>>({
@@ -65,29 +67,37 @@ export default function LoginForm() {
       </div>
 
       <div className="flex flex-col gap-10">
-        <div className="grid grid-cols-3 gap-2">
+        <div className="flex flex-col gap-2">
           <Button
             variant="outline"
-            size="lg"
-            className="h-12"
-          >
-            <RiAppleFill className="w-6 h-6" />
-          </Button>
-          <Button
-            variant="outline"
-            size="lg"
-            className="h-12"
+            className="flex p-5 shadow-none"
+            onMouseOver={() => setFacebookHover(true)}
+            onMouseLeave={() => setFacebookHover(false)}
             onClick={() => signIn('facebook', { callbackUrl: '/' })}
           >
-            <RiFacebookFill className="w-6 h-6 text-[#316FF6]" />
+            <div className="flex items-center justify-center h-5 w-5 aspect-square">
+              <RiFacebookFill className="w-full h-full text-[#316FF6]" />
+            </div>
+            <div className="flex justify-between items-center ml-4 w-full">
+              <p className="text-sm w-fit">Masuk dengan Facebook</p>
+              {facebookHover && <RiArrowRightLine className="w-4 h-4" />}
+            </div>
           </Button>
+
           <Button
             variant="outline"
-            size="lg"
-            className="h-12"
+            className="flex p-5 shadow-none"
+            onMouseOver={() => setGoogleHover(true)}
+            onMouseLeave={() => setGoogleHover(false)}
             onClick={() => signIn('google', { callbackUrl: '/' })}
           >
-            <FcGoogle className="w-6 h-6" />
+            <div className="flex items-center justify-center h-5 w-5 aspect-square">
+              <FcGoogle className="w-full h-full" />
+            </div>
+            <div className="flex justify-between items-center ml-4 w-full">
+              <p className="text-sm w-fit">Masuk dengan Google</p>
+              {googleHover && <RiArrowRightLine className="w-4 h-4" />}
+            </div>
           </Button>
         </div>
 
