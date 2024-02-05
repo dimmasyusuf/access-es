@@ -9,7 +9,7 @@ export default function CTA() {
     <section className="max-w-screen-xl px-6 sm:px-8 md:px-0 w-full">
       <div className="flex py-8 md:py-10">
         <div className="flex flex-wrap md:flex-nowrap px-8 gap-8 w-full bg-primary h-full md:h-[322px] rounded-xl text-primary-foreground">
-          <div className="flex items-end justify-center min-w-[350px] order-2 md:order-1 mx-auto md:mx-0">
+          <div className="flex items-end justify-center md:min-w-[350px] order-2 md:order-1 mx-auto md:mx-0">
             <Image
               src="/cta.webp"
               alt="Study Hard or Go Home"
